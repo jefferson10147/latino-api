@@ -20,7 +20,7 @@ class CreateAssociateMembersTable extends Migration
             $table->string('last_name')->collation('utf8mb4_bin');
             $table->integer('dni')->nullable();
             $table->string('relationship')->collation('utf8mb4_bin');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedInteger('user_id');
             });
     }
 
