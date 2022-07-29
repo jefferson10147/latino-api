@@ -21,7 +21,7 @@ class CreateRerservationsTable extends Migration
             $table->boleean('approved')->default(false);
             $table->text('description')->collation('utf8mb4_bin');
             $table->unsignedInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             });
     }
 
