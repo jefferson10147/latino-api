@@ -17,7 +17,7 @@ class CreateRolesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name')->collation('utf8mb4_bin');
-            });
+        });
     }
 
     /**

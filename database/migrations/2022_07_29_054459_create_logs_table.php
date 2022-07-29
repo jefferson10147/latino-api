@@ -19,7 +19,7 @@ class CreateLogsTable extends Migration
             $table->string('ip')->collation('utf8mb4_bin');
             $table->string('url')->collation('utf8mb4_bin');
             $table->timestamp('date')->collation('utf8mb4_bin');
-            });
+        });
     }
 
     /**

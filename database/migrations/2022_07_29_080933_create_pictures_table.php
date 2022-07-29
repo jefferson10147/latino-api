@@ -24,7 +24,7 @@ class CreatePicturesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('area_id')->nullable();
             $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
-            });
+        });
     }
 
     /**

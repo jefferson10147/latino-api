@@ -20,7 +20,7 @@ class CreateReservedAreasTable extends Migration
             $table->foreign('reservation_id')->references('id')->on('rerservations')->onDelete('cascade');
             $table->integer('area_id')->nullable();
             $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
-            });
+        });
     }
 
     /**

@@ -18,7 +18,7 @@ class CreateSportClubsTable extends Migration
             $table->timestamps();
             $table->string('name')->collation('utf8mb4_bin');
             $table->string('description')->collation('utf8mb4_bin');
-            });
+        });
     }
 
     /**

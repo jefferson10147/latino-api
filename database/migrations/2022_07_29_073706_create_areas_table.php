@@ -20,7 +20,7 @@ class CreateAreasTable extends Migration
             $table->string('description')->collation('utf8mb4_bin')->nullable();
             $table->boolean('availability')->default(true);
             $table->float('price');
-            });
+        });
     }
 
     /**
