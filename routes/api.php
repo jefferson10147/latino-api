@@ -8,6 +8,7 @@ use App\Http\Controllers\SportClubsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsCommentsController;
+use App\Http\Controllers\AssociateMembersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,4 @@ Route::resource('sport-clubs', SportClubsController::class, ['except' => ['creat
 Route::resource('roles', RolesController::class, ['except' => ['create', 'edit']]);
 Route::resource('news', NewsController::class, ['except' => ['create', 'edit']]);
 Route::resource('news-comments', NewsCommentsController::class, ['except' => ['create', 'edit']]);
+Route::resource('associate-members', AssociateMembersController::class, ['except' => ['create', 'edit']]);
