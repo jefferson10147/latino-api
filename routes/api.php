@@ -11,6 +11,7 @@ use App\Http\Controllers\NewsCommentsController;
 use App\Http\Controllers\AssociateMembersController;
 use App\Http\Controllers\WagesController;
 use App\Http\Controllers\AreasController;
+use App\Http\Controllers\RerservationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,4 @@ Route::resource('news-comments', NewsCommentsController::class, ['except' => ['c
 Route::resource('associate-members', AssociateMembersController::class, ['except' => ['create', 'edit']]);
 Route::resource('wages', WagesController::class, ['except' => ['create', 'edit']]);
 Route::resource('areas', AreasController::class, ['except' => ['create', 'edit']]);
+Route::resource('rerservations', RerservationsController::class, ['except' => ['create', 'edit']]);
