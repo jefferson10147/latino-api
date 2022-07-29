@@ -13,6 +13,7 @@ use App\Http\Controllers\WagesController;
 use App\Http\Controllers\AreasController;
 use App\Http\Controllers\RerservationsController;
 use App\Http\Controllers\ReservedAreasController;
+use App\Http\Controllers\PicturesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,4 @@ Route::resource('wages', WagesController::class, ['except' => ['create', 'edit']
 Route::resource('areas', AreasController::class, ['except' => ['create', 'edit']]);
 Route::resource('rerservations', RerservationsController::class, ['except' => ['create', 'edit']]);
 Route::resource('reserved-areas', ReservedAreasController::class, ['except' => ['create', 'edit']]);
+Route::resource('pictures', PicturesController::class, ['except' => ['create', 'edit']]);
