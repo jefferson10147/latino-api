@@ -17,7 +17,7 @@ class CreateNewsCommentsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->text('comment_text')->collation('utf8mb4_bin');
-            $table->unsignedBigInteger('new_id');
+            $table->unsignedInteger('new_id');
             $table->unsignedInteger('user_id');
             });
     }
