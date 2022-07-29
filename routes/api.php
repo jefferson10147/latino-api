@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LogsController;
+use App\Http\Controllers\SportClubsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('logs', LogsController::class, ['except' => ['create', 'edit']]);
+Route::resource('sport-clubs', SportClubsController::class, ['except' => ['create', 'edit']]);
