@@ -27,5 +27,8 @@ class NewsComment extends Model
      */
     protected $fillable = ['comment_text', 'new_id', 'user_id'];
 
-    
+    public function news()
+    {
+        return $this->belongsTo(News::class);
+    }
 }
