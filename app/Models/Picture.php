@@ -31,4 +31,17 @@ class Picture extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /*
+        IMPORTANT:
+
+        According to the coventions, this method
+        should be called just "new" (in singular)
+        But we named it on plural because New is a keyword in PHP
+        
+    */
+    public function news()
+    {
+        return $this->belongsTo(News::class);
+    }
 }
