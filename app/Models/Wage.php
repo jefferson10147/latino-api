@@ -27,5 +27,8 @@ class Wage extends Model
      */
     protected $fillable = ['total', 'description', 'month', 'year', 'status', 'user_id'];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
