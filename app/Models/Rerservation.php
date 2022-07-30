@@ -31,4 +31,9 @@ class Rerservation extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function reservedAreas()
+    {
+        return $this->hasMany(ReservedArea::class);
+    }
 }

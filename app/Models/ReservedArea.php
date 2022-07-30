@@ -27,5 +27,8 @@ class ReservedArea extends Model
      */
     protected $fillable = ['reservation_id', 'area_id'];
 
-    
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class);
+    }
 }
