@@ -27,5 +27,8 @@ class AssociateMember extends Model
      */
     protected $fillable = ['name', 'last_name', 'dni', 'relationship', 'user_id'];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
