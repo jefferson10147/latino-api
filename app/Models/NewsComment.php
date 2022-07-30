@@ -27,6 +27,14 @@ class NewsComment extends Model
      */
     protected $fillable = ['comment_text', 'new_id', 'user_id'];
 
+    /*
+        IMPORTANT:
+
+        According to the coventions, this method
+        should be called just "new" (in singular)
+        But we named it on plural because New is a keyword in PHP
+        
+    */
     public function news()
     {
         return $this->belongsTo(News::class);

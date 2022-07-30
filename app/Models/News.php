@@ -4,6 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+
+/*
+    IMPORTANT:
+
+    Acording to the conventions, this model 
+    Should be called New (in singular)
+    But we named it on plural because New is a keyword in PHP
+*/
 class News extends Model
 {
     /**
