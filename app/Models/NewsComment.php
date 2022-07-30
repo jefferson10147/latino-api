@@ -39,4 +39,9 @@ class NewsComment extends Model
     {
         return $this->belongsTo(News::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

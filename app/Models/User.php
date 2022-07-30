@@ -71,4 +71,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Picture::class);
     }
+
+    public function newsComments()
+    {
+        return $this->hasMany(NewsComment::class);
+    }
 }
