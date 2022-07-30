@@ -31,4 +31,9 @@ class ReservedArea extends Model
     {
         return $this->belongsTo(Reservation::class);
     }
+
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
 }

@@ -27,5 +27,8 @@ class Area extends Model
      */
     protected $fillable = ['name', 'description', 'availability', 'price'];
 
-    
+    public function reservedAreas()
+    {
+        return $this->hasMany(ReservedArea::class);
+    }
 }
