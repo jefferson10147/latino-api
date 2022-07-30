@@ -31,4 +31,9 @@ class Area extends Model
     {
         return $this->hasMany(ReservedArea::class);
     }
+
+    public function pictures()
+    {
+        return $this->hasMany(Picture::class);
+    }
 }

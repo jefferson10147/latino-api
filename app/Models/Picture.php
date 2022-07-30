@@ -44,4 +44,9 @@ class Picture extends Model
     {
         return $this->belongsTo(News::class);
     }
+
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
 }
