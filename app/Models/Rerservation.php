@@ -27,5 +27,8 @@ class Rerservation extends Model
      */
     protected $fillable = ['start_date', 'end_date', 'approved', 'description', 'user_id'];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
