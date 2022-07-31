@@ -21,7 +21,7 @@ class CreateAssociateMembersTable extends Migration
             $table->integer('dni')->nullable();
             $table->string('relationship')->collation('utf8mb4_bin');
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
