@@ -16,8 +16,8 @@ class CreateRerservationsTable extends Migration
         Schema::create('rerservations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
             $table->boolean('approved')->default(false);
             $table->text('description')->collation('utf8mb4_bin');
             $table->unsignedBigInteger('user_id')->nullable();
