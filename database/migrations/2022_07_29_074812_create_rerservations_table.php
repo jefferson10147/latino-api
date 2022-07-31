@@ -18,7 +18,7 @@ class CreateRerservationsTable extends Migration
             $table->timestamps();
             $table->timestamp('start_date');
             $table->timestamp('end_date');
-            $table->boleean('approved')->default(false);
+            $table->boolean('approved')->default(false);
             $table->text('description')->collation('utf8mb4_bin');
             $table->unsignedInteger('user_id')->nullable();
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
