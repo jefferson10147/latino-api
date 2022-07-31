@@ -14,15 +14,15 @@ class CreatePicturesTable extends Migration
     public function up()
     {
         Schema::create('pictures', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->timestamps();
             $table->string('name')->collation('utf8mb4_bin');
             $table->string('url');
-            $table->unsignedInteger('new_id')->nullable();
+            $table->unsignedBigInteger('new_id')->nullable();
             // $table->foreign('new_id')->references('id')->on('news')->onDelete('cascade');
-            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedInteger('area_id')->nullable();
+            $table->unsignedBigInteger('area_id')->nullable();
             // $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
         });
     }

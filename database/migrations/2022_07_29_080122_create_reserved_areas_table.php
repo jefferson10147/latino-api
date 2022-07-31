@@ -14,11 +14,11 @@ class CreateReservedAreasTable extends Migration
     public function up()
     {
         Schema::create('reserved_areas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->timestamps();
-            $table->integer('reservation_id')->nullable();
+            $table->unsignedBigInteger('reservation_id')->nullable();
             // $table->foreign('reservation_id')->references('id')->on('rerservations')->onDelete('cascade');
-            $table->integer('area_id')->nullable();
+            $table->unsignedBigInteger('area_id')->nullable();
             // $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
         });
     }

@@ -14,13 +14,13 @@ class CreateRerservationsTable extends Migration
     public function up()
     {
         Schema::create('rerservations', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->timestamps();
             $table->timestamp('start_date');
             $table->timestamp('end_date');
             $table->boolean('approved')->default(false);
             $table->text('description')->collation('utf8mb4_bin');
-            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

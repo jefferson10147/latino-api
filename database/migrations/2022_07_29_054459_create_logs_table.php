@@ -14,7 +14,7 @@ class CreateLogsTable extends Migration
     public function up()
     {
         Schema::create('logs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->timestamps();
             $table->string('ip')->collation('utf8mb4_bin');
             $table->string('url')->collation('utf8mb4_bin');

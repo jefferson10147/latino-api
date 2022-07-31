@@ -14,12 +14,12 @@ class CreateNewsCommentsTable extends Migration
     public function up()
     {
         Schema::create('news_comments', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->timestamps();
             $table->tinyText('comment_text')->collation('utf8mb4_bin');
-            $table->unsignedInteger('new_id');
+            $table->unsignedBigInteger('new_id');
             // $table->foreign('new_id')->references('id')->on('news')->onDelete('cascade');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

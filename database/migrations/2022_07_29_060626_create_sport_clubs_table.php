@@ -14,7 +14,7 @@ class CreateSportClubsTable extends Migration
     public function up()
     {
         Schema::create('sport_clubs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->timestamps();
             $table->string('name')->collation('utf8mb4_bin');
             $table->string('description')->collation('utf8mb4_bin');

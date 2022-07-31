@@ -14,14 +14,14 @@ class CreateWagesTable extends Migration
     public function up()
     {
         Schema::create('wages', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->timestamps();
             $table->unsignedFloat('total');
             $table->string('description')->collation('utf8mb4_bin')->nullable();
             $table->unsignedInteger('month');
             $table->unsignedInteger('year');
             $table->boolean('status');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
