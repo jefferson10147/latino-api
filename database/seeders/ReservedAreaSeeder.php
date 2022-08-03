@@ -18,14 +18,14 @@ class ReservedAreaSeeder extends Seeder
         DB::table('reserved_areas')->insert([
             'created_at' => now(),
             'updated_at' => now(),
-            'user_id' => 1,
+            'reservation_id' => 1,
             'area_id' => 1
         ]);
 
         DB::table('reserved_areas')->insert([
             'created_at' => now(),
             'updated_at' => now(),
-            'user_id' => 1,
+            'reservation_id' => 1,
             'area_id' => 2
         ]);
     }
