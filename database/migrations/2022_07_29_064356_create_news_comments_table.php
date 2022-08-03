@@ -16,7 +16,7 @@ class CreateNewsCommentsTable extends Migration
         Schema::create('news_comments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->tinyText('comment_text')->collation('utf8mb4_bin');
+            $table->string('comment_text')->collation('utf8mb4_bin');
             $table->unsignedBigInteger('new_id');
             // $table->foreign('new_id')->references('id')->on('news')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
