@@ -19,7 +19,7 @@ return new class extends Migration
             // $table->foreign('role_id')->references('id')->on('roles')->OnDelete('cascade');
             $table->string('name')->collation('utf8mb4_bin');
             $table->string('last_name')->collation('utf8mb4_bin');
-            $table->integer('dni')->unique();
+            $table->string('dni')->collation('utf8mb4_bin')->unique();
             $table->string('email')->unique()->collation('utf8mb4_bin');
             $table->string('address')->collation('utf8mb4_bin');
             $table->integer('membership_number')->unique();
