@@ -18,7 +18,7 @@ class CreateAssociateMembersTable extends Migration
             $table->timestamps();
             $table->string('name')->collation('utf8mb4_bin');
             $table->string('last_name')->collation('utf8mb4_bin');
-            $table->integer('dni')->nullable();
+            $table->string('dni')->collation('utf8mb4_bin')->nullable();
             $table->string('relationship')->collation('utf8mb4_bin');
             $table->timestamp('birthdate')->nullable();
             $table->unsignedBigInteger('user_id');
