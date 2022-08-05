@@ -12,7 +12,7 @@ use App\Http\Controllers\NewsCommentsController;
 use App\Http\Controllers\AssociateMembersController;
 use App\Http\Controllers\WagesController;
 use App\Http\Controllers\AreasController;
-use App\Http\Controllers\RerservationsController;
+use App\Http\Controllers\ReservationsController;
 use App\Http\Controllers\ReservedAreasController;
 use App\Http\Controllers\PicturesController;
 use App\Http\Controllers\LoginController;
@@ -41,7 +41,7 @@ Route::resource('news-comments', NewsCommentsController::class, ['except' => ['c
 Route::resource('associate-members', AssociateMembersController::class, ['except' => ['create', 'edit']]);
 Route::resource('wages', WagesController::class, ['except' => ['create', 'edit']]);
 Route::resource('areas', AreasController::class, ['except' => ['create', 'edit']]);
-Route::resource('rerservations', RerservationsController::class, ['except' => ['create', 'edit']]);
+Route::resource('reservations', ReservationsController::class, ['except' => ['create', 'edit']]);
 Route::resource('reserved-areas', ReservedAreasController::class, ['except' => ['create', 'edit']]);
 Route::resource('pictures', PicturesController::class, ['except' => ['create', 'edit']]);
 

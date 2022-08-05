@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('reserved_areas', function (Blueprint $table) {
-            $table->foreign('reservation_id')->references('id')->on('rerservations')->onDelete('cascade');
+            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
             $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
         });
     }

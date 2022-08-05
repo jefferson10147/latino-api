@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Models\Rerservation;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
-class RerservationsController extends Controller
+class ReservationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class RerservationsController extends Controller
      */
     public function index(Request $request)
     {
-        $rerservations = Rerservation::latest()->paginate(25);
+        $reservations = Reservation::latest()->paginate(25);
 
-        return $rerservations;
+        return $reservations;
     }
 
     /**
@@ -32,9 +32,9 @@ class RerservationsController extends Controller
     public function store(Request $request)
     {
         
-        $rerservation = Rerservation::create($request->all());
+        $reservation = Reservation::create($request->all());
 
-        return response()->json($rerservation, 201);
+        return response()->json($reservation, 201);
     }
 
     /**
@@ -46,9 +46,9 @@ class RerservationsController extends Controller
      */
     public function show($id)
     {
-        $rerservation = Rerservation::findOrFail($id);
+        $reservation = Reservation::findOrFail($id);
 
-        return $rerservation;
+        return $reservation;
     }
 
     /**
@@ -62,10 +62,10 @@ class RerservationsController extends Controller
     public function update(Request $request, $id)
     {
         
-        $rerservation = Rerservation::findOrFail($id);
-        $rerservation->update($request->all());
+        $reservation = Reservation::findOrFail($id);
+        $reservation->update($request->all());
 
-        return response()->json($rerservation, 200);
+        return response()->json($reservation, 200);
     }
 
     /**
@@ -77,7 +77,7 @@ class RerservationsController extends Controller
      */
     public function destroy($id)
     {
-        Rerservation::destroy($id);
+        Reservation::destroy($id);
 
         return response()->json(null, 204);
     }
