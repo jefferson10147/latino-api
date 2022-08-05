@@ -27,6 +27,8 @@ class NewsComment extends Model
      */
     protected $fillable = ['comment_text', 'new_id', 'user_id'];
 
+    protected $with = ['user', 'news'];
+
     /*
         IMPORTANT:
 
