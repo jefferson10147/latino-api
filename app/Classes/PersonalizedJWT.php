@@ -33,11 +33,11 @@ class PersonalizedJWT
             throw new \Exception('Expired token.');
         }
 
-        $object_user = User::where("email", $data->email)->first();
+        $object_user = User::find($data->id);
 
         if(!$object_user) throw new \Exception('There is not user associated with this token.');
 
-        return $data;
+        return $object_user;
     }
 
     public static function generateToken($data_token)

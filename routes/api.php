@@ -68,3 +68,6 @@ Route::resource('reserved-areas', ReservedAreasController::class, ['except' => [
 Route::resource('pictures', PicturesController::class, ['except' => ['create', 'edit']]);
 
 Route::post('/login', [LoginController::class, 'login']);
+
+// middleware('SessionValidateAdmin') ID_ROLE_ADMIN=1
+// middleware('SessionValidateUser') ID_ROLE_USER=2
