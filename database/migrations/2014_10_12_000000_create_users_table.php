@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('dni')->collation('utf8mb4_bin')->unique();
             $table->string('email')->unique()->collation('utf8mb4_bin');
             $table->string('address')->collation('utf8mb4_bin');
-            $table->integer('membership_number')->unique();
+            $table->integer('membership_number')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->collation('utf8mb4_bin');
             $table->timestamp('birthdate')->nullable();
