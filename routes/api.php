@@ -56,7 +56,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 */
 Route::resource('users', UserController::class, ['except' => ['create', 'edit']]);
 Route::resource('logs', LogsController::class, ['except' => ['create', 'edit']]);
-Route::resource('sport-clubs', SportClubsController::class, ['except' => ['create', 'edit']]);
+
+Route::middleware(['SessionValidateAdminUser'])->group(function () {
+    Route::resource('sport-clubs', SportClubsController::class, ['except' => ['create', 'edit']]);
+});
+
 Route::resource('roles', RolesController::class, ['except' => ['create', 'edit']]);
 Route::resource('news', NewsController::class, ['except' => ['create', 'edit']]);
 Route::resource('news-comments', NewsCommentsController::class, ['except' => ['create', 'edit']]);
