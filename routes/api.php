@@ -69,11 +69,11 @@ Route::middleware(['SessionValidateAdminUser'])->group(function () {
     Route::resource('areas', AreasController::class, ['except' => ['create', 'edit']]);
     Route::resource('reservations', ReservationsController::class, ['except' => ['create', 'edit']]);
     Route::resource('reserved-areas', ReservedAreasController::class, ['except' => ['create', 'edit']]);
+    Route::resource('pictures', PicturesController::class, ['except' => ['create', 'edit']]);
 });
 
 Route::resource('news', NewsController::class, ['except' => ['create', 'edit']]);
 Route::resource('news-comments', NewsCommentsController::class, ['except' => ['create', 'edit']]);
-Route::resource('pictures', PicturesController::class, ['except' => ['create', 'edit']]);
 
 Route::post('/login', [LoginController::class, 'login']);
 
