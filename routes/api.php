@@ -54,7 +54,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     El resto de rutas y metodos en cada una de ellas deben ser accedidas por un usuario administrador
 */
-Route::resource('users', UserController::class, ['except' => ['create', 'edit']]);
+
+Route::middleware(['SessionValidateAdmin'])->group(function () {
+    Route::resource('users', UserController::class, ['except' => ['create', 'edit']]);
+});
+
 Route::resource('logs', LogsController::class, ['except' => ['create', 'edit']]);
 
 Route::middleware(['SessionValidateAdminUser'])->group(function () {
