@@ -42,6 +42,6 @@ class News extends Model
 
     public function pictures()
     {
-        return $this->hasMany(NewsPicture::class);
+        return $this->hasMany(Picture::class);
     }
 }
