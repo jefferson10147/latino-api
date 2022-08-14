@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\News;
 use App\Models\Picture;
+use App\Models\NewsComment;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -83,5 +84,13 @@ class NewsController extends Controller
         News::destroy($id);
 
         return response()->json(null, 204);
+    }
+
+    public function getFullNews($id)
+    {
+        $news = News::findOrFail($id);
+        $pictures = Picture::where('new_id', $news->id)->get();
+        $comments = NewsComment::where('new_id', $news->id)->get();
+        return response()->json(['new' => $news, 'pictures' => $pictures, 'comments' => $comments], 200);
     }
 }

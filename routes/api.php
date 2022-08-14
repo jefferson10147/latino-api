@@ -50,6 +50,7 @@ Route::middleware(['SessionValidateAdminUser'])->group(function () {
 });
 
 Route::resource('news', NewsController::class, ['except' => ['create', 'edit']]);
+Route::get('/full-news/{id}', [NewsController::class, 'getFullNews']);
 Route::resource('news-comments', NewsCommentsController::class, ['except' => ['create', 'edit']]);
 
 Route::post('/login', [LoginController::class, 'login']);
