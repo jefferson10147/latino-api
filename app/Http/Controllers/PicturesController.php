@@ -77,8 +77,13 @@ class PicturesController extends Controller
      */
     public function destroy($id)
     {
-        Picture::destroy($id);
+        $pictures = Picture::findOrFail($id);
+        $pictures->delete();
+        $status = [
+            'status' => 'success',
+            'message' => 'Picture deleted successfully'
+        ];
 
-        return response()->json(null, 204);
+        return response()->json($status);
     }
 }

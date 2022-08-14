@@ -77,8 +77,13 @@ class AssociateMembersController extends Controller
      */
     public function destroy($id)
     {
-        AssociateMember::destroy($id);
+        $associtateMember = AssociateMember::findOrFail($id);
+        $associtateMember->delete();
+        $status = [
+            'status' => 'success',
+            'message' => 'Associate Member deleted successfully'
+        ];
 
-        return response()->json(null, 204);
+        return response()->json($status);
     }
 }

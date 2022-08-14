@@ -77,8 +77,13 @@ class ReservedAreasController extends Controller
      */
     public function destroy($id)
     {
-        ReservedArea::destroy($id);
+        $reservedArea = ReservedArea::findOrFail($id);
+        $reservedArea->delete();
+        $status = [
+            'status' => 'success',
+            'message' => 'Reserved Area deleted successfully'
+        ];
 
-        return response()->json(null, 204);
+        return response()->json($status);
     }
 }
