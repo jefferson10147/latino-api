@@ -75,24 +75,6 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    /*public function destroy($id)
-    {
-        User::destroy($id);
-        $status = [
-            'status' => 'success',
-            'message' => 'User deleted successfully'
-        ];
-
-        return response()->json($status);
-    }*/
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $User = User::findOrFail($id);
