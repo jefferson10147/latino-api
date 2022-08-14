@@ -33,7 +33,7 @@ class News extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['title', 'description', 'body'];
 
     public function comments()
     {

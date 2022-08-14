@@ -20,14 +20,16 @@ class NewsSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
             'title' => Str::random(10),
-            'body' => Str::random(100),
+            'description' => Str::random(10),
+            'body' => '[{ "title": "casa", "paragraph": "sdjfsnsdfksfjks" }, { "paragraph": "sdjfsnsdfksfjks" }, { "title": "casa", "paragraph": "sdjfsnsdfksfjks" }, { "title": "casa", "paragraph": "sdjfsnsdfksfjks" }]',
         ]);
 
         DB::table('news')->insert([
             'created_at' => now(),
             'updated_at' => now(),
             'title' => Str::random(10),
-            'body' => Str::random(100),
+            'description' => Str::random(10),
+            'body' => '[{ "title": "casa", "paragraph": "sdjfsnsdfksfjks" }, { "paragraph": "sdjfsnsdfksfjks" }, { "title": "casa", "paragraph": "sdjfsnsdfksfjks" }, { "title": "casa", "paragraph": "sdjfsnsdfksfjks" }]',
         ]);
     }
 }

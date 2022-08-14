@@ -17,7 +17,8 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title')->collation('utf8mb4_bin');
-            $table->text('body')->collation('utf8mb4_bin');
+            $table->string('description')->collation('utf8mb4_bin');
+            $table->json('body');
         });
     }
 
