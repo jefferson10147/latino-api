@@ -20,8 +20,17 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         $news = News::latest()->paginate(25);
-
-        return $news;
+        $data = [];
+        $i = 0;
+        foreach ($news as $new) {
+            $pictures = Picture::where('new_id', $new->id)->get();
+            $comments = NewsComment::where('new_id', $new->id)->get();
+            $data[$i]['new'] = $new;
+            $data[$i]['pictures'] = $pictures;
+            $data[$i]['comments'] = $comments;
+            $i++;
+        }
+        return response()->json($data, 200);
     }
 
     /**
