@@ -90,9 +90,14 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        News::destroy($id);
+        $news = News::findOrFail($id);
+        $news->delete();
+        $status = [
+            'status' => 'success',
+            'message' => 'New deleted successfully'
+        ];
 
-        return response()->json(null, 204);
+        return response()->json($status);
     }
 
     public function getFullNews($id)

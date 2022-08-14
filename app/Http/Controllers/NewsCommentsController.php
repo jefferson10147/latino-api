@@ -77,8 +77,13 @@ class NewsCommentsController extends Controller
      */
     public function destroy($id)
     {
-        NewsComment::destroy($id);
+        $newsComment = NewsComment::findOrFail($id);
+        $newsComment->delete();
+        $status = [
+            'status' => 'success',
+            'message' => 'New Comment deleted successfully'
+        ];
 
-        return response()->json(null, 204);
+        return response()->json($status);
     }
 }

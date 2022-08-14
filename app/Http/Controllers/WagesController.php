@@ -77,8 +77,13 @@ class WagesController extends Controller
      */
     public function destroy($id)
     {
-        Wage::destroy($id);
+        $wage = Wage::findOrFail($id);
+        $wage->delete();
+        $status = [
+            'status' => 'success',
+            'message' => 'Wage deleted successfully'
+        ];
 
-        return response()->json(null, 204);
+        return response()->json($status);
     }
 }

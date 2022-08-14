@@ -77,8 +77,13 @@ class LogsController extends Controller
      */
     public function destroy($id)
     {
-        Log::destroy($id);
+        $log = Log::findOrFail($id);
+        $log->delete();
+        $status = [
+            'status' => 'success',
+            'message' => 'Log deleted successfully'
+        ];
 
-        return response()->json(null, 204);
+        return response()->json($status);
     }
 }

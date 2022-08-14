@@ -77,8 +77,13 @@ class SportClubsController extends Controller
      */
     public function destroy($id)
     {
-        SportClub::destroy($id);
+        $sportclub = SportClub::findOrFail($id);
+        $sportclub->delete();
+        $status = [
+            'status' => 'success',
+            'message' => 'Sport club deleted successfully'
+        ];
 
-        return response()->json(null, 204);
+        return response()->json($status);
     }
 }

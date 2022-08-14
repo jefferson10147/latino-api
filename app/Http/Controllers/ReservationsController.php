@@ -77,8 +77,13 @@ class ReservationsController extends Controller
      */
     public function destroy($id)
     {
-        Reservation::destroy($id);
+        $reservation = Reservation::findOrFail($id);
+        $reservation->delete();
+        $status = [
+            'status' => 'success',
+            'message' => 'Reservation deleted successfully'
+        ];
 
-        return response()->json(null, 204);
+        return response()->json($status);
     }
 }
