@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\News;
+use App\Models\Picture;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -31,10 +32,12 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $news = News::create($request->all());
-
-        return response()->json($news, 201);
+        $news = News::create(['title' => $request->title, 'description' => $request->description, 'body' => $request->body]);
+        $picture_url = $request->picture->store('public/');
+        $picture_url = str_replace("public", "storage",  $picture_url);
+        $picture_url = ENV('APP_URL') . $picture_url;
+        $picture = Picture::create(['new_id' => $news->id, 'name' => $news->title, 'url' => $picture_url]);
+        return response()->json(['new' => $news, 'picture' => $picture], 201);
     }
 
     /**
