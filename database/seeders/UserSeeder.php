@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'membership_number' => 1234,
             'email_verified_at' => now(),
             'password' => '1234',
-            'birthdate' => now(),
+            'birthdate' => date('Y-m-d'),
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()
@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
             'membership_number' => 5678,
             'email_verified_at' => now(),
             'password' => '1234',
-            'birthdate' => now(),
+            'birthdate' => date('Y-m-d'),
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now()

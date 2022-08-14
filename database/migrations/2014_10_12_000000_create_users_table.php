@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('membership_number')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->collation('utf8mb4_bin');
-            $table->timestamp('birthdate')->nullable();
+            $table->date('birthdate')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
