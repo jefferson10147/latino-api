@@ -100,6 +100,13 @@ class NewsController extends Controller
         return response()->json($status);
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\Response
+    */
     public function getFullNews($id)
     {
         $news = News::findOrFail($id);
