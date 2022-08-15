@@ -46,6 +46,7 @@ class NewsController extends Controller
         $picture_url = $request->picture->store('public/');
         $picture_url = str_replace("public", "storage",  $picture_url);
         $picture_url = ENV('APP_URL') . $picture_url;
+        $news->body = json_decode($news->body);
         $picture = Picture::create(['new_id' => $news->id, 'name' => $news->title, 'url' => $picture_url]);
         return response()->json(['new' => $news, 'picture' => $picture], 201);
     }
