@@ -25,6 +25,7 @@ class NewsController extends Controller
         foreach ($news as $new) {
             $pictures = Picture::where('new_id', $new->id)->get();
             $comments = NewsComment::where('new_id', $new->id)->get();
+            $new->body = json_decode($new->body);
             $data[$i]['new'] = $new;
             $data[$i]['pictures'] = $pictures;
             $data[$i]['comments'] = $comments;
@@ -61,7 +62,7 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::findOrFail($id);
-
+        $news->body = json_decode($news->body);
         return $news;
     }
 
@@ -78,7 +79,7 @@ class NewsController extends Controller
         
         $news = News::findOrFail($id);
         $news->update($request->all());
-
+        $news->body = json_decode($news->body);
         return response()->json($news, 200);
     }
 
@@ -113,6 +114,7 @@ class NewsController extends Controller
         $news = News::findOrFail($id);
         $pictures = Picture::where('new_id', $news->id)->get();
         $comments = NewsComment::where('new_id', $news->id)->get();
+        $news->body = json_decode($news->body);
         return response()->json(['new' => $news, 'pictures' => $pictures, 'comments' => $comments], 200);
     }
 }
