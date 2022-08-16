@@ -27,7 +27,7 @@ class Reservation extends Model
      */
     protected $fillable = ['start_date', 'end_date', 'approved', 'description', 'user_id'];
 
-    protected $with = ['user'];
+    protected $with = ['user', 'reservedAreas'];
 
     public function user()
     {

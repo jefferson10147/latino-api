@@ -27,7 +27,7 @@ class ReservedArea extends Model
      */
     protected $fillable = ['reservation_id', 'area_id'];
 
-    protected $with = ['reservation', 'area'];
+    protected $with = ['area'];
 
     public function reservation()
     {
