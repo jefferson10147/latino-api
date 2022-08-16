@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\Reservation;
+use App\Models\ReservedArea;
 use Illuminate\Http\Request;
 
 class ReservationsController extends Controller
@@ -31,8 +32,24 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $reservation = Reservation::create($request->all());
+        $reserved_areas = ReservedArea::where('area_id', $request->area_id)->get();
+
+        for ($i=0; $i < count($reserved_areas); $i++) {
+            $reservation = Reservation::find($reserved_areas[$i]->reservation_id);
+            if(strtotime($request->start_date) == strtotime($reservation->start_date)) {
+                return response()->json(['error' => "Time block."], 400);
+            }
+        }
+
+        $reservation = Reservation::create([
+            "start_date" => $request->start_date,
+            "end_date" => $request->end_date,
+            "approved" => $request->approved,
+            "description" => $request->description,
+            "user_id" => $request->user_id,
+        ]);
+
+        $reserved_area = ReservedArea::create(["reservation_id" => $reservation->id, 'area_id' => $request->area_id]);
 
         return response()->json($reservation, 201);
     }
