@@ -32,11 +32,27 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
+        if(strtotime($request->end_date) < strtotime($request->start_date)) {
+            return response()->json(['error' => "Error time."], 400);
+        }
+
         $reserved_areas = ReservedArea::where('area_id', $request->area_id)->get();
 
         for ($i=0; $i < count($reserved_areas); $i++) {
             $reservation = Reservation::find($reserved_areas[$i]->reservation_id);
             if(strtotime($request->start_date) == strtotime($reservation->start_date)) {
+                return response()->json(['error' => "Time block."], 400);
+            }
+
+            if(strtotime($request->end_date) == strtotime($reservation->end_date)) {
+                return response()->json(['error' => "Time block."], 400);
+            }
+
+            if(strtotime($request->start_date) >= strtotime($reservation->start_date) && strtotime($request->start_date) < strtotime($reservation->end_date)) {
+                return response()->json(['error' => "Time block."], 400);
+            }
+
+            if(strtotime($request->end_date) > strtotime($reservation->start_date) && strtotime($request->end_date) <= strtotime($reservation->end_date)) {
                 return response()->json(['error' => "Time block."], 400);
             }
         }
