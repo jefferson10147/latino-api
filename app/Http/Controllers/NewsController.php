@@ -25,7 +25,6 @@ class NewsController extends Controller
         foreach ($news as $new) {
             $pictures = Picture::where('new_id', $new->id)->get();
             $comments = NewsComment::where('new_id', $new->id)->get();
-            $new->body = json_decode($new->body);
             $data[$i]['new'] = $new;
             $data[$i]['pictures'] = $pictures;
             $data[$i]['comments'] = $comments;
@@ -47,7 +46,6 @@ class NewsController extends Controller
         $picture_url = $request->picture->store('public/');
         $picture_url = str_replace("public", "storage",  $picture_url);
         $picture_url = ENV('APP_URL') . $picture_url;
-        $news->body = json_decode($news->body);
         $picture = Picture::create(['new_id' => $news->id, 'name' => $news->title, 'url' => $picture_url]);
         return response()->json(['new' => $news, 'picture' => $picture], 201);
     }
@@ -62,7 +60,6 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::findOrFail($id);
-        $news->body = json_decode($news->body);
         return $news;
     }
 
@@ -79,7 +76,6 @@ class NewsController extends Controller
         
         $news = News::findOrFail($id);
         $news->update($request->all());
-        $news->body = json_decode($news->body);
         return response()->json($news, 200);
     }
 
@@ -114,7 +110,6 @@ class NewsController extends Controller
         $news = News::findOrFail($id);
         $pictures = Picture::where('new_id', $news->id)->get();
         $comments = NewsComment::where('new_id', $news->id)->get();
-        $news->body = json_decode($news->body);
         return response()->json(['new' => $news, 'pictures' => $pictures, 'comments' => $comments], 200);
     }
 }
