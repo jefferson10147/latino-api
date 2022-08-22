@@ -52,6 +52,21 @@ class NewsCommentsController extends Controller
     }
 
     /**
+     * Display comments from a specific new
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCommentByNewId($id) 
+    {
+        $newComments = NewsComment::where('new_id', $id)->get();
+
+        return response()->json($newComments, 200);
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
