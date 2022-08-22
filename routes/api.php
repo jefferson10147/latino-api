@@ -56,6 +56,3 @@ Route::resource('news-comments', NewsCommentsController::class, ['except' => ['c
 Route::get('/comments-by-new/{id}', [NewsCommentsController::class, 'getCommentByNewId']);
 
 Route::post('/login', [LoginController::class, 'login']);
-
-// middleware('SessionValidateAdmin') ID_ROLE_ADMIN=1
-// middleware('SessionValidateUser') ID_ROLE_USER=2
