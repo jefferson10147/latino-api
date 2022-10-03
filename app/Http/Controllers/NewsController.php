@@ -19,7 +19,7 @@ class NewsController extends Controller
      */
     public function index(Request $request)
     {
-        $news = News::latest()->paginate(25);
+        $news = News::latest()->paginate(1);
         $data = [];
         $i = 0;
         foreach ($news as $new) {
@@ -30,7 +30,10 @@ class NewsController extends Controller
             $data[$i]['comments'] = $comments;
             $i++;
         }
-        return response()->json($data, 200);
+        return response()->json([
+            "news" => $data,
+            "amountNews" => count(News::all()),
+        ], 200);
     }
 
     /**
