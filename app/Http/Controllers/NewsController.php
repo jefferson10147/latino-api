@@ -19,7 +19,7 @@ class NewsController extends Controller
      */
     public function index(Request $request)
     {
-        $news = News::latest()->paginate(1);
+        $news = News::latest()->paginate(12);
         $data = [];
         $i = 0;
         foreach ($news as $new) {
