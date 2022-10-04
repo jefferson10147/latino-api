@@ -2,17 +2,11 @@
 
 ## Latino's Club API
 
-<table>
-    <tr>
-        <td>
-            This API was made with Laravel, it contains the business logic for the Latino club.
-        </td>
-    </tr>
-</table>
+This API was made with Laravel, it contains the business logic for the Latino club.
 
 ## How to install and run this API (UNIX SYSTEMS)
 
-Before continuing with the installation process, you should have already installed PHP (above V8) and Composer (above V2).
+Before continuing with the installation process, you should have already installed PHP (above V8.1) and Composer (above V2.3).
 
 1- Clone this project, on your local machine:
 
